@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Geolocalización</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <ion-card>
+    <ion-card-header>
+
+      <!-- Datos de Geolocalización -->
+      <ion-card-title>Datos</ion-card-title>
+
+      <br>
+
+      <ion-label color="dark">Latitud: {{this.latitud}} </ion-label>
+
+      <br>
+
+      <ion-label color="dark">Longitud: {{this.longitud}} </ion-label>
+
+      <br>
+
+      <ion-label *ngIf="altitud" color="dark">Altitud: {{this.altitud}} </ion-label>
+      <ion-label *ngIf="!altitud" color="dark">Altitud: Dispositivo no compatible </ion-label>
+
+      <br>
+
+      <ion-label *ngIf="velocidad" color="dark">Velocidad: {{this.velocidad}} </ion-label>
+      <ion-label *ngIf="!velocidad" color="dark">Velocidad: Dispositivo no compatible </ion-label>
+
+    </ion-card-header>
+
+  </ion-card>
+
+</ion-content>

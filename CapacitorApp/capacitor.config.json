@@ -1,0 +1,14 @@
+{
+  "appId": "io.miguelcanosantana.capacitor",
+  "appName": "CapacitorApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  },
+  "linuxAndroidStudioPath": "/var/lib/flatpak/app/com.google.AndroidStudio/x86_64/stable/4ddfe1efc03dc7ee83bb5b64051b8bf2cad97a3ec3767ba575f7bb35f7d5ee90/files/extra/android-studio/studio.sh",
+  "cordova": {}
+}

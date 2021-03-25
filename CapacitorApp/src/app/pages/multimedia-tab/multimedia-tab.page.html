@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Fotos y Audios</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+  <!-- Botón Flotante (No se está grabando audio) -->
+  <ion-fab *ngIf="!estaGrabando" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+
+      <!-- Tomar foto -->
+      <ion-fab-button (click)="tomarFoto()">
+        <ion-icon name="camera"></ion-icon>
+      </ion-fab-button>
+
+      <!-- Grabar audio -->
+      <ion-fab-button (click)="grabarAudio()">
+        <ion-icon name="mic"></ion-icon>
+      </ion-fab-button>
+
+    </ion-fab-list>
+  </ion-fab>
+
+
+  <!-- Botón Flotante (Si se está grabando audio) -->
+  <ion-fab *ngIf="estaGrabando" vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button color="danger" (click)="pararGrabar()">
+      <ion-icon name="stop"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+
+  <ion-grid>
+    <ion-row>
+
+      <!-- Sección Fotos -->
+      <ion-col>
+
+        <!-- Título -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Fotos</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <!-- Fotos -->
+        <ion-card *ngFor="let foto of listaFotosUrl">
+          <img class="imagen-card" [src]="foto">
+        </ion-card>
+
+      </ion-col>
+
+      <!-- Sección Audios -->
+      <ion-col>
+
+        <!-- Título -->
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Audios</ion-card-title>
+          </ion-card-header>
+        </ion-card>
+
+        <!-- Audios -->
+        <ion-card *ngFor="let audio of listaAudios" class="ion-text-center">
+
+            <!-- Controles del reproductor -->
+            <ion-button fill="clear" (click)="controlarAudio('stop', audio.value.recordDataBase64)">
+              <ion-icon slot="icon-only" name="stop"></ion-icon>
+            </ion-button>
+
+            <ion-button fill="clear" (click)="controlarAudio('play', audio.value.recordDataBase64)">
+              <ion-icon slot="icon-only" name="play"></ion-icon>
+            </ion-button>
+
+            <ion-button fill="clear" (click)="controlarAudio('pause', audio.value.recordDataBase64)">
+              <ion-icon slot="icon-only" name="pause"></ion-icon>
+            </ion-button>
+
+        </ion-card>
+      
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+
+
+
+</ion-content>
